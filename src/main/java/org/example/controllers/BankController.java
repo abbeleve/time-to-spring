@@ -8,10 +8,10 @@ import java.util.Collections;
 @RestController
 public class BankController {
 
-    @GetMapping("/transactions/{userId}")
-    public List<Transaction> transactinos(String userId) {
-        List<Transactions> transactions = Collections.emptyList();
-        return transactions
-    }
+//    @GetMapping("/transactions/{userId}")
+//    public List<Transaction> transactinos(String userId) {
+//        List<Transactions> transactions = Collections.emptyList();
+//        return transactions
+//    }
 
 }

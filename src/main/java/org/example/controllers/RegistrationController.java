@@ -4,6 +4,7 @@ import org.example.group.Roles;
 import org.example.group.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -16,5 +17,10 @@ public class RegistrationController {
 
         model.addAttribute("user", student);
         return "registration-success";
+    }
+
+    @GetMapping("/gettest")
+    public String getTest() {
+        return "gettest";
     }
 }
