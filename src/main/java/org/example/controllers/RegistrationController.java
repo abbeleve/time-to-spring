@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class RegistrationController {
 
-    @PostMapping
+    @PostMapping("/register")
     public String registerUser(@RequestParam Integer age, @RequestParam String name, @RequestParam String surname, Model model) {
         Student student = new Student(Roles.Noob, name, surname, age);
 
