@@ -23,6 +23,11 @@ public class Role implements GrantedAuthority {
     @ManyToMany
     private Set<Student> users;
 
+    public Role(long l, Roles roles) {
+        id = l;
+        name = roles;
+    }
+
 
     @Override
     public String getAuthority() {
