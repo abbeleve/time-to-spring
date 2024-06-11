@@ -5,10 +5,12 @@ import org.example.group.Student;
 import org.example.jsons.newcomer;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -20,11 +22,11 @@ import java.util.List;
 public class RegistrationController {
 
     @PostMapping("/register")
-    public String registerUser(@RequestParam Integer age, @RequestParam String name, @RequestParam String surname, Model model) {
+    public List<Student> registerUser(@RequestParam Integer age, @RequestParam String name, @RequestParam String surname) {
         Student student = new Student(Roles.Noob, name, surname, age);
-
-        model.addAttribute("user", student);
-        return "registration-success";
+        List<Student> guys = new ArrayList<>();
+        guys.add(student);
+        return guys;
     }
 
     @GetMapping("/gettest")
@@ -33,5 +35,20 @@ public class RegistrationController {
         List<newcomer> res = new ArrayList<>();
         res.add(newguy);
         return res;
+    }
+}
+
+@Controller
+class RedirectingController {
+
+    @GetMapping("/redirectWithRedirectPrefix")
+    public ModelAndView redirectTest(ModelMap model) {
+        model.addAttribute("attribute", "redirectWithRedirectPrefix");
+        return new ModelAndView("redirect:/redirectedUrl", model);
+    }
+
+    @GetMapping("/redirectedUrl")
+    public String redirected() {
+        return "gettest";
     }
 }
