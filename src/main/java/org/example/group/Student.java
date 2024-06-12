@@ -28,6 +28,8 @@ public class Student implements UserDetails {
     private Integer age;
     @Transient
     private String password;
+    @Transient
+    private String passwordConfirm;
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles;
 
