@@ -43,8 +43,8 @@ public class RegistrationController {
     }
 
     @GetMapping("/registration")
-    public String registreation(Model model) {
-        model.addAttribute("uesrForm", new Student());
+    public String registration(Model model) {
+        model.addAttribute("userForm", new Student());
 
         return "registration";
     }

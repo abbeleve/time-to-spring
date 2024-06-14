@@ -30,6 +30,7 @@ public class Student implements UserDetails {
     private String password;
     @Transient
     private String passwordConfirm;
+    @Setter
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles;
 
@@ -45,9 +46,7 @@ public class Student implements UserDetails {
     public Set getRoles() {
         return roles;
     }
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
-    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return getRoles();
