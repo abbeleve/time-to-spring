@@ -20,12 +20,19 @@ public class Role implements GrantedAuthority {
     private Long id;
     private Roles name;
     @Transient
-    @ManyToMany
+    @ManyToMany(mappedBy = "roles")
     private Set<Student> users;
 
-    public Role(long l, Roles roles) {
-        id = l;
-        name = roles;
+    public Role() {
+    }
+
+    public Role(Long id) {
+        this.id = id;
+    }
+
+    public Role(Long id, Roles role) {
+        this.id = id;
+        this.name = role;
     }
 
 

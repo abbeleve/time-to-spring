@@ -7,6 +7,7 @@ import org.example.group.Roles;
 import org.example.group.Student;
 import org.example.repository.RoleRepository;
 import org.example.repository.UserRepository;
+import org.hibernate.validator.internal.util.stereotypes.Lazy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
